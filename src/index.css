@@ -1,13 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background-color: #010f01d5;
+	--header-color: #00df9a;
+	--shadow-color: #03110373;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	background-color: var(--background-color);
+	font-family: 'Inter', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#brand h1 {
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#menu li {
+	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+#mobile-menu li {
+	font-weight: 800;
+	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+#menubar {
+	font-weight: 900;
+	color: #000;
+	text-shadow: #000;
 }
