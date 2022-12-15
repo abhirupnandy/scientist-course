@@ -14,31 +14,16 @@ const Footer = () => {
 					<FaGlobe size={30} className='cursor-pointer' />
 				</div>
 			</div>
-			<div className='lg:col-span-2 lg:pl-12 flex justify-between'>
+			<div className='lg:col-span-2 lg:pl-12 flex justify-evenly'>
 				<div>
-					<h6 className='font-medium text-gray-500'>Solutions</h6>
+					<h6 className='font-medium text-gray-500'>Banaras Hindu University</h6>
 					<ul>
-						<li className='py-2 text-small'>Data Scientist</li>
-						<li className='py-2 text-small'>Applied Scientist</li>
-						<li className='py-2 text-small'>Data Engineer</li>
+						<li className='py-2 text-small'>Computer Science Department</li>
+						<li className='py-2 text-small'>Careers (Research Program)</li>
+						<li className='py-2 text-small'>About Us (Text Analytics Group)</li>
 					</ul>
 				</div>
-				<div>
-					<h6 className='font-medium text-gray-500'>Support</h6>
-					<ul>
-						<li className='py-2 text-small'>Pricing</li>
-						<li className='py-2 text-small'>Documentation</li>
-						<li className='py-2 text-small'>Guides</li>
-					</ul>
-				</div>
-				<div>
-					<h6 className='font-medium text-gray-500'>Company</h6>
-					<ul>
-						<li className='py-2 text-small'>Certificate Course</li>
-						<li className='py-2 text-small'>Career</li>
-						<li className='py-2 text-small'>About Us</li>
-					</ul>
-				</div>
+				<div className='flex h-1/2 items-center'>Copyright © Vivek Kumar Singh 2022</div>
 			</div>
 		</div>
 	);
