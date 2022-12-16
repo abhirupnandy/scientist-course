@@ -7,6 +7,7 @@
 	--background-color: #010f01d5;
 	--header-color: #00df9a;
 	--shadow-color: #03110373;
+	font-family: 'Inter', sans-serif;
 }
 body {
 	background-color: var(--background-color);
@@ -30,4 +31,11 @@ body {
 	font-weight: 900;
 	color: #000;
 	text-shadow: #000;
+}
+
+@layer base {
+	input,
+	select {
+		@apply rounded-md text-gray-800 bg-white;
+	}
 }

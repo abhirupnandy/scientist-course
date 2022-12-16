@@ -10,10 +10,18 @@ const Contact = () => {
 				</div>
 				<div className='my-4'>
 					<div className='flex flex-col sm:flex-row items-center justify-between w-[80%] sm:w-full mx-auto'>
-						<input type='email' name='contact-email' id='contact-email' placeholder='Enter your email' className='p-3 flex w-full rounded-md text-black' />
+						<input
+							type='email'
+							name='contact-email'
+							id='contact-email'
+							placeholder='Enter your email'
+							className='p-3 flex w-full rounded-md text-black focus:outline-none focus:border-blue-500'
+						/>
 						<button className='bg-[color:var(--header-color)] text-black rounded-md font-medium w-[200px] ml-4 my-6 py-3 px-6 '>Contact Us</button>
 					</div>
-				<p className='px-6 md:px-0'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span className='text-[color:var(--header-color)] cursor-pointer'>Link</span> numquam.</p>
+					<p className='px-6 md:px-0'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. <span className='text-[color:var(--header-color)] cursor-pointer'>Link</span> numquam.
+					</p>
 				</div>
 			</div>
 		</div>

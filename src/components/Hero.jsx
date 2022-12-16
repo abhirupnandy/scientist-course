@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
+import { Link } from 'react-scroll';
 
 const Hero = () => {
 	const el = useRef(null);
@@ -35,7 +36,11 @@ const Hero = () => {
 					</div>
 				</div>
 				<p className='md:text-2xl text-xl font-bold text-gray-500 p-4'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, culpa.</p>
-				<button className='bg-[color:var(--header-color)] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black text-xl hover:bg-emerald-900 hover:text-white'>Register</button>
+				<button className='bg-[color:var(--header-color)] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black text-xl hover:bg-emerald-900 hover:text-white'>
+					<Link to='register' smooth={true} duration={800}>
+						Register
+					</Link>
+				</button>
 			</div>
 		</div>
 	);

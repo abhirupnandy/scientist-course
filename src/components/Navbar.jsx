@@ -7,7 +7,9 @@ const Navbar = () => {
 	const handleClick = () => setNav(!nav);
 	return (
 		<div className='fixed top-0 flex justify-between items-center h-24 w-full mx-auto px-4 text-gray-800 md:bg-slate-600 bg-opacity-40 z-10'>
-			<h1 className='w-full text-3xl lg:text-5xl font-bold text-[color:var(--header-color)] uppercase' id='brand'>Text Analytics.</h1>
+			<h1 className='w-full text-3xl lg:text-5xl font-bold text-[color:var(--header-color)] uppercase' id='brand'>
+				Text Analytics.
+			</h1>
 			<ul className='hidden md:flex' id='menu'>
 				<li className='p-4 cursor-pointer text-xl font-semibold hover:text-gray-900  hover:text-2xl duration-150 ease-out hover:border-b hover:font-bold'>
 					<Link to='home' smooth={true} duration={800}>
@@ -36,7 +38,11 @@ const Navbar = () => {
 				</li>
 			</ul>
 			<div onClick={handleClick} className='block md:hidden' id='menubar'>
-				{nav ? <AiOutlineClose size={24} className='font-bold' /> : <AiOutlineMenu size={24} className='font-bold' />}
+				{nav ? (
+					<AiOutlineClose size={28} className='font-extrabold border border-gray-200 border-opacity-60' />
+				) : (
+					<AiOutlineMenu size={28} className='font-extrabold  border border-gray-200 border-opacity-60' />
+				)}
 			</div>
 			<div
 				className={
