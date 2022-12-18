@@ -1,7 +1,56 @@
-import React, { useRef, useEffect } from 'react';
-
+import React, { useState } from 'react';
+import { db } from '../firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 const Register = () => {
+	// save the state of the form
+	const [form, setForm] = useState({
+		'first-name': '',
+		'last-name': '',
+		email: '',
+		phone: '',
+		'address-1': '',
+		'address-2': '',
+		city: '',
+		state: '',
+		pincode: '',
+		nation: '',
+	});
+
+	// handle the change in the form
+	const handleChange = (e) => {
+		e.preventDefault();
+		const { name, value } = e.target;
+		setForm((prev) => {
+			return {
+				...prev,
+				[name]: value,
+			};
+		});
+	};
+
+	// handle the submit of the form
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// console.log(JSON.stringify(form));
+		// add the form data to the firebase database
+		// const docRef = addDoc(collection(db, 'registration form'), form);
+		setDoc(doc(db, 'registration form', e.target.email.value), form);
+		console.log('Document written with ID: ', e.target.email.value);
+		// reset the form
+		setForm({
+			'first-name': '',
+			'last-name': '',
+			email: '',
+			phone: '',
+			'address-1': '',
+			'address-2': '',
+			city: '',
+			state: '',
+			pincode: '',
+			nation: '',
+		});
+	};
 
 	return (
 		<div className='w-full py-16 my-10 text-white shadow-md' name='register'>
@@ -12,7 +61,7 @@ const Register = () => {
 				</div>
 				{/* form */}
 				<div className='w-full flex flex-col items-center justify-center mt-8'>
-					<form action='/'>
+					<form action='/' onSubmit={handleSubmit}>
 						<div>
 							{/* CONTACT: Name + Email + Phone */}
 							{/* heading with text - personal information */}
@@ -31,6 +80,7 @@ const Register = () => {
 												id='first-name'
 												className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
 												placeholder='Your first name'
+												onChange={handleChange}
 											/>
 										</div>
 										<div className='w-full md:w-1/2'>
@@ -40,6 +90,7 @@ const Register = () => {
 												name='last-name'
 												id='last-name'
 												className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+												onChange={handleChange}
 												placeholder='Your last name'
 											/>
 										</div>
@@ -52,6 +103,7 @@ const Register = () => {
 										name='email'
 										id='email'
 										className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+										onChange={handleChange}
 										placeholder='Your Email address'
 									/>
 								</div>
@@ -62,6 +114,7 @@ const Register = () => {
 										name='phone'
 										id='phone'
 										className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+										onChange={handleChange}
 										placeholder='Your phone number with country code (+91)'
 									/>
 								</div>
@@ -81,6 +134,7 @@ const Register = () => {
 										name='address-1'
 										id='address-1'
 										className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+										onChange={handleChange}
 										placeholder='Your address'
 									/>
 								</div>
@@ -91,6 +145,7 @@ const Register = () => {
 										name='address-2'
 										id='address-2'
 										className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+										onChange={handleChange}
 										placeholder='Your address'
 									/>
 								</div>
@@ -102,13 +157,14 @@ const Register = () => {
 											name='city'
 											id='city'
 											className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+											onChange={handleChange}
 											placeholder='Your city'
 										/>
 									</div>
 									<div className='w-full md:w-1/2'>
 										<label htmlFor='state'>State</label>
-										<select name='state' id='state' className='w-full p-2 mt-2 border-2 rounded-md focus:outline-none focus:border-blue-500'>
-											<option value='default' selected>
+										<select name='state' id='state' className='w-full p-2 mt-2 border-2 rounded-md focus:outline-none focus:border-blue-500' onChange={handleChange}>
+											<option value='default' defaultValue>
 												Choose...
 											</option>
 											<option value='Andaman and Nicobar Islands'>Andaman and Nicobar Islands</option>
@@ -159,6 +215,7 @@ const Register = () => {
 											name='pincode'
 											id='pincode'
 											className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+											onChange={handleChange}
 											placeholder='Your pincode'
 										/>
 									</div>
@@ -169,6 +226,7 @@ const Register = () => {
 											name='nation'
 											id='nation'
 											className='w-full p-2 mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+											onChange={handleChange}
 											placeholder='Your Nationality'
 										/>
 									</div>
